@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import DappFaucet from "./DappFaucet";
+import { useContract } from "web3-hooks";
+import { robinetTokenAddress, robinetTokenAbi } from "./contracts/RobinetToken";
+import { faucetAddress, faucetAbi } from "./contracts/Faucet";
+import { TokenContextProvider } from "./context/TokenContext";
+//import Nav from "./components/Nav";
+
+export const FaucetContext = React.createContext(null);
 
 function App() {
+  const robinetToken = useContract(robinetTokenAddress, robinetTokenAbi);
+  const faucet = useContract(faucetAddress, faucetAbi);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FaucetContext.Provider value={[robinetToken, faucet]}>
+      <TokenContextProvider>
+        {/*<Nav />*/}
+        <DappFaucet />
+      </TokenContextProvider>
+    </FaucetContext.Provider>
   );
 }
 
