@@ -7,7 +7,7 @@ Cet exercice comprend la création d'un token ERC20, d'un smart contract de Fauc
 Votre project React et votre projet Hardhat devront être accessibles depuis un repository github.
 Le formulaire de rendu: (<https://forms.gle/z8D3rFEXy9g6eV4D7>)
 
-## Smart contracts dans un projet hardat
+## Smart contracts dans un projet hardhat
 
 Votre projet devra contenir un smart contract de token ERC20 classique, ainsi qu'un smart contract pour un faucet décentralisé.
 Ce faucet permet l'envoi d'une quantité fixe de tokens possédés par une adresse qui est sous votre contrôle.

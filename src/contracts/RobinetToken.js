@@ -1,8 +1,14 @@
-export const robinetTokenAddress = "0x2AaB4936D8E128222d82ee56789Fd5a4C7B33D30";
+export const robinetTokenAddress = "0x3ba7084e8e7848fD6483d5b48506Ff2190E11979";
 
 export const robinetTokenAbi = [
   {
-    inputs: [],
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "totalSupply_",
+        type: "uint256",
+      },
+    ],
     stateMutability: "nonpayable",
     type: "constructor",
   },

@@ -1,21 +1,11 @@
-import { Text, Divider, Box, Input, Button, Spacer, VStack } from "@chakra-ui/react";
-import { Alert, AlertIcon, AlertTitle } from "@chakra-ui/react";
-import { useToast } from "@chakra-ui/react";
+import { Text, Divider, Box, Input, Button, Spacer } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { ethers } from "ethers";
 import { useToken } from "../context/TokenContext";
 import { FaucetContext } from "../App";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import Allowance from "./Allowance";
-
-export function AlertPop(props) {
-  return (
-    <Alert status="error">
-      <AlertIcon />
-      <AlertTitle mr={2}>{props.title}</AlertTitle>
-    </Alert>
-  );
-}
+import AlertPop from "./AlertPop";
 
 const Analytics = () => {
   const { token, ownBalance, balance, dispatch } = useToken();
@@ -24,15 +14,12 @@ const Analytics = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const toast = useToast();
-  const [faucet, robinetToken] = useContext(FaucetContext);
+  const { robinetToken } = useContext(FaucetContext);
 
   const handleCheckBalance = async (data) => {
-    console.log(errors);
-    console.log(data);
     try {
-      const balance = await robinetToken.balanceOf(data.account);
-      dispatch({ type: "SET_BALANCE", payload: ethers.utils.formatEther(balance) });
+      const newBalance = await robinetToken.balanceOf(data.account);
+      dispatch({ type: "SET_BALANCE", payload: ethers.utils.formatEther(newBalance) });
     } catch (e) {
       dispatch({ type: "ERROR", payload: e.message });
     }
@@ -99,95 +86,3 @@ const Analytics = () => {
 };
 
 export default Analytics;
-
-/*
-import { Text, Divider, Box, Input, Button, Spacer, FormControl } from "@chakra-ui/react";
-import { ethers } from "ethers";
-import { useToken } from "../context/tokenContext";
-import { FaucetContext } from "../App";
-import { useState, useContext } from "react";
-
-const Analytics = () => {
-  const { token, ownBalance, balance, dispatch, error } = useToken();
-  const [robinetToken, faucet] = useContext(FaucetContext);
-  const [address, setAddress] = useState(0);
-  const [form, setForm] = useState({ owner: "", sender: "" });
-
-  const handleCheckBalance = async () => {
-    try {
-      const balance = await robinetToken.balanceOf(address);
-      dispatch({ type: "SET_BALANCE", payload: ethers.utils.formatEther(balance) });
-    } catch (e) {
-      dispatch({ type: "ERROR", payload: e.message });
-    }
-  };
-
-  const handleCheckAllowance = async (e) => {
-    try {
-      const allowance = await robinetToken.allowance(form.owner, form.sender);
-      dispatch({ type: "SET_ALLOWANCE", payload: ethers.utils.formatEther(allowance) });
-    } catch (e) {
-      dispatch({ type: "ERROR", payload: e.message });
-    }
-  };
-
-  return (
-    <>
-      <Text align="center" fontSize="3xl">
-        Analytics
-      </Text>
-      <Text fontSize="2xl">Name</Text>
-      <Text>{token.name}</Text>
-      <Text fontSize="xl">Symbol</Text>
-      <Text>{token.symbol}</Text>
-      <Text fontSize="xl">Decimals</Text>
-      <Text>{token.decimals}</Text>
-      <Text fontSize="xl">Total supply</Text>
-      <Text>{token.totalSupply}</Text>
-
-      <Divider orientation="horizontal" />
-
-      <Box overflow="hidden" mt={5}>
-        <Text fontSize="xl">Check balance</Text>
-        <Input onChange={(e) => setAddress(e.target.value)} variant="outline" w="50%" m={2} placeholder="Address" />
-        <Button onClick={handleCheckBalance} colorScheme="teal" variant="solid" w="30%" m={2} mb={3}>
-          👀
-        </Button>
-        <Text>Amount:{balance}</Text>
-      </Box>
-
-      <Divider orientation="horizontal" />
-
-      <FormControl id="amount">
-        <Text fontSize="xl">Check allowance</Text>
-        <Input
-          onChange={(e) => setForm({ ...form, owner: e.target.value })}
-          name="owner"
-          variant="outline"
-          w="51%"
-          m={2}
-          placeholder="Owner"
-        />
-        <Input
-          onChange={(e) => setForm({ ...form, sender: e.target.value })}
-          name="sender"
-          variant="outline"
-          w="51%"
-          m={2}
-          placeholder="Sender"
-        />
-        <Spacer />
-        <Button onClick={handleCheckAllowance} colorScheme="teal" variant="solid" w="30%" m={2} mb={3}>
-          👀
-        </Button>
-      </FormControl>
-      <Spacer />
-      <Text fontSize="xl">
-        Your balance : {ownBalance} {token.symbol}
-      </Text>
-    </>
-  );
-};
-
-export default Analytics;
-*/
