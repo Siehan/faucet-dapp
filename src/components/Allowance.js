@@ -41,7 +41,7 @@ const Allowance = () => {
     <form onSubmit={handleSubmit(handleCheckAllowance)}>
       <VStack>
         <Text fontWeight="bold" fontSize={"xl"}>
-          check allowance
+          Check Allowance
         </Text>
         <Input
           type="text"
@@ -63,7 +63,7 @@ const Allowance = () => {
           })}
         />
         {errors.sender && <AlertPop title={errors.sender.message} />}
-        <Button borderRadius="md" bg="cyan.600" _hover={{ bg: "cyan.200" }} variant="ghost" type="submit">
+        <Button borderRadius="md" bg="teal.500" _hover={{ bg: "teal.300" }} variant="ghost" type="submit">
           👀
         </Button>
         <Text>{allowance}</Text>

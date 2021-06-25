@@ -1,4 +1,4 @@
-import { Text, Box, Input, Button, Image, Spacer } from "@chakra-ui/react";
+import { Box, Input, Button, Image, Spacer } from "@chakra-ui/react";
 import { FormLabel } from "@chakra-ui/react";
 import transferFrom from "../assets/images/transferFrom.jpg";
 import {
@@ -101,11 +101,8 @@ const TransfertFrom = () => {
 
   return (
     <>
-      <Text align="center" fontSize="3xl">
-        TransferFrom
-      </Text>
-      <Box maxW="md" borderWidth="2px" borderRadius="md" boxShadow="2xl" p="10" overflow="hidden">
-        <Image src={transferFrom} alt="image" />
+      <Box borderWidth="1px" borderRadius="lg" boxShadow="xl" p="10" overflow="hidden">
+        <Image src={transferFrom} alt="image" borderRadius="md" />
         <form onSubmit={handleSubmit(handleSubmitButton)} variant="outline" w="75%" m={2} id="first-name" isRequired>
           <FormLabel>From</FormLabel>
           <Input value={allowance.address} onChange={handleSender} placeholder="Sender" isRequired />
@@ -130,7 +127,7 @@ const TransfertFrom = () => {
           </NumberInput>
           <FormLabel>To</FormLabel>
           <Input
-            mb={1}
+            mb={2}
             variant="outline"
             placeholder="Receiver"
             isRequired
@@ -140,7 +137,7 @@ const TransfertFrom = () => {
             })}
           />
           {errors.transferTo && <AlertPop title={errors.transferTo.message} />}
-          <Button type="submit" colorScheme="teal" variant="solid" w="50%" m={2} mb={3} disabled={loading}>
+          <Button type="submit" bg="#0eb4ce" variant="solid" w="30%" p={7} m={2} mb={3} disabled={loading}>
             {loading ? (
               <>
                 <CircularProgress fontSize="15px" isIndeterminate size="30px" color="green.300" />

@@ -1,4 +1,4 @@
-import { Text, Box, Input, Button, Image, Spacer } from "@chakra-ui/react";
+import { Box, Input, Button, Image, Spacer } from "@chakra-ui/react";
 import {
   FormLabel,
   NumberInput,
@@ -102,11 +102,8 @@ const Approval = () => {
   }, [robinetToken, toast, token, web3State.account]);
   return (
     <>
-      <Text align="center" fontSize="3xl">
-        Approval
-      </Text>
-      <Box maxW="md" borderWidth="2px" borderRadius="md" boxShadow="2xl" p="10" overflow="hidden">
-        <Image src={approve} alt="image" height="" />
+      <Box borderWidth="1px" borderRadius="lg" boxShadow="xl" p="10" overflow="hidden">
+        <Image borderRadius="md" src={approve} alt="image" />
         <form onSubmit={handleSubmit(handleSubmitButton)} id="first-name" m={2}>
           <FormLabel>To address</FormLabel>
           <Input
@@ -127,7 +124,7 @@ const Approval = () => {
               <NumberDecrementStepper />
             </NumberInputStepper>
           </NumberInput>
-          <Button type="submit" colorScheme="teal" variant="solid" w="50%" m={2} mb={3} disabled={loading}>
+          <Button type="submit" bg="green" variant="solid" w="30%" p={7} m={2} mb={3} disabled={loading}>
             {loading ? (
               <>
                 <CircularProgress fontSize="15px" isIndeterminate size="30px" color="green.300" />
@@ -145,3 +142,20 @@ const Approval = () => {
 };
 
 export default Approval;
+
+/*
+border-radius: 5px;
+    background-image: linear-gradient(
+-131deg
+, #0eb4ce 0%, #0eb4ce 100%);
+    color: #fff;
+    height: 50px;
+    padding: 12px 43px;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 600;
+    box-shadow: 0 15px 35px #e3f8ee;
+    border: none;
+    outline: none;
+    transition: all .2s ease-in;
+    */

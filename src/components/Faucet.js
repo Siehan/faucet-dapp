@@ -1,24 +1,12 @@
 import { useContext, useState } from "react";
-import RobinetToken from "./RobinetToken";
+//import RobinetToken from "./RobinetToken";
 import { useToast } from "@chakra-ui/react";
 import { useToken } from "../context/TokenContext";
 import { FaucetContext } from "../App";
-import Footer from "../components/Footer";
+import SlideFadeOnScroll from "./SlideFadeOnScroll";
 
-import { Button, Flex } from "@chakra-ui/react";
-import {
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  rest,
-  Box,
-  Heading,
-  Center,
-  Spacer,
-  CircularProgress,
-} from "@chakra-ui/react";
+import { Button, Flex, Box, Container, Stack } from "@chakra-ui/react"; // useColorModeValue,
+import { rest, Heading, Spacer, CircularProgress } from "@chakra-ui/react";
 
 function Faucet() {
   const { faucet } = useContext(FaucetContext);
@@ -26,6 +14,7 @@ function Faucet() {
   const toast = useToast();
   const [loading, setLoading] = useState(false);
   console.log(faucet);
+  //const bg = useColorModeValue("gray.50", "yellow.500");
 
   const handleClaimToken = async () => {
     setLoading(true);
@@ -63,73 +52,77 @@ function Faucet() {
   };
 
   return (
-    <Center>
-      <Flex direction="column" w="100%" height="100%" rounded="full" boxShadow="md">
-        <Tabs isLazy>
-          <Tabs isFitted variant="enclosed">
-            <TabList>
-              <Tab borderWidth="4px" fontSize="2xl">
-                Faucet
-              </Tab>
-              <Tab borderWidth="4px" fontSize="2xl">
-                Functionality RBT
-              </Tab>
-            </TabList>
-            <TabPanels>
-              {/* initially mounted */}
-              <TabPanel p={100}>
-                <Flex
-                  flexDirection="column"
-                  alignItems="center"
-                  m={4}
-                  p={20}
-                  boxShadow="2xl"
-                  rounded="md"
-                  borderWidth="2px"
-                  flex="1"
-                  {...rest}
-                >
-                  <Heading align="center" fontSize="6xl" mb={20}>
-                    🔥 CLAIM {} RIGHT NOW ! 🔥
-                  </Heading>
-                  <Spacer />
-                  <Box w="300px" p={5} border="1px" borderColor="yellow.300" rounded="3xl" fontWeight="bold" mb={20}>
-                    Your RBT Balance : {balance}
-                  </Box>
+    <>
+      <Box w="100%" shadow="xs" borderRadius="lg">
+        <Container as="section" maxW="container.lg" id="faucet" pt="28" pb="10">
+          <SlideFadeOnScroll>
+            <Box flex="1">
+              <Heading
+                mb="6"
+                borderRadius="lg"
+                align="center"
+                bgGradient="linear(to-r, yellow,orange,red)"
+                _hover={{
+                  bgGradient: "linear(to-l, #3CAADD, #4FAA1B)",
+                }}
+              >
+                FAUCET
+              </Heading>
+            </Box>
 
-                  <Button
-                    onClick={handleClaimToken}
-                    bgGradient="linear(to-r, red,orange,yellow)"
-                    _hover={{
-                      bgGradient: "linear(to-r, blue.500, green.500)",
-                    }}
-                    rounded="xl"
-                    size="lg"
-                    height="60px"
-                    width="300px"
-                    disabled={loading}
-                  >
-                    {loading ? (
-                      <>
-                        <CircularProgress fontSize="15px" isIndeterminate size="30px" color="green.300" />
-                        <p>Claiming...</p>
-                      </>
-                    ) : (
-                      "Claim 100 RBT"
-                    )}
-                  </Button>
-                  <Footer />
-                </Flex>
-              </TabPanel>
-              {/* initially not mounted */}
-              <TabPanel>
-                <RobinetToken />
-              </TabPanel>
-            </TabPanels>
-          </Tabs>
-        </Tabs>
-      </Flex>
-    </Center>
+            <Stack
+              direction={["column-reverse", null, "row"]}
+              sx={{
+                gap: "2rem",
+              }}
+              alignItems="center"
+            >
+              <Flex
+                flexDirection="column"
+                alignItems="center"
+                m={4}
+                p={20}
+                boxShadow="2xl"
+                rounded="md"
+                borderWidth="2px"
+                flex="1"
+                {...rest}
+              >
+                <Heading align="center" fontSize="6xl" mb={20}>
+                  🔥 CLAIM {} RIGHT NOW ! 🔥
+                </Heading>
+                <Spacer />
+                <Box w="300px" p={5} border="1px" borderColor="yellow.300" rounded="3xl" fontWeight="bold" mb={20}>
+                  Your RBT Balance : {balance}
+                </Box>
+
+                <Button
+                  onClick={handleClaimToken}
+                  bgGradient="linear(to-r, red,orange,yellow)"
+                  _hover={{
+                    bgGradient: "linear(to-l, red,orange,yellow)",
+                  }}
+                  rounded="xl"
+                  size="lg"
+                  height="60px"
+                  width="300px"
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <>
+                      <CircularProgress fontSize="15px" isIndeterminate size="30px" color="green.300" />
+                      <p>Claiming...</p>
+                    </>
+                  ) : (
+                    "Claim 100 RBT"
+                  )}
+                </Button>
+              </Flex>
+            </Stack>
+          </SlideFadeOnScroll>
+        </Container>
+      </Box>
+    </>
   );
 }
 

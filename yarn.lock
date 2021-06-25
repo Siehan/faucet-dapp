@@ -1295,6 +1295,14 @@
   dependencies:
     "@chakra-ui/utils" "1.8.0"
 
+"@chakra-ui/icons@^1.0.13":
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/icons/-/icons-1.0.13.tgz#d8eb04479b048d8023ae90d76205cd4a0bf7dd79"
+  integrity sha512-twDpFz2uPVboMTEI4QA2y3EJND3G4+/9AVs730fgnnfhTw4EOJt0Lhfm4Spq1qi1LgHF16x4/Lao1E2imB5lWw==
+  dependencies:
+    "@chakra-ui/icon" "1.1.9"
+    "@types/react" "^17.0.0"
+
 "@chakra-ui/image@1.0.15":
   version "1.0.15"
   resolved "https://registry.npmjs.org/@chakra-ui/image/-/image-1.0.15.tgz"
@@ -2817,7 +2825,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*":
+"@types/react@*", "@types/react@^17.0.0":
   version "17.0.11"
   resolved "https://registry.npmjs.org/@types/react/-/react-17.0.11.tgz"
   integrity sha512-yFRQbD+whVonItSk7ZzP/L+gPTJVBkL/7shLEF+i9GC/1cV3JmUxEQz6+9ylhUpWSDuqo1N9qEvqS6vTj4USUA==
@@ -4640,6 +4648,11 @@ cosmiconfig@^7.0.0:
     parse-json "^5.0.0"
     path-type "^4.0.0"
     yaml "^1.10.0"
+
+countup.js@^1.9.3:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/countup.js/-/countup.js-1.9.3.tgz#ce3e50cd7160441e478f07da31895edcc0f1c9dd"
+  integrity sha1-zj5QzXFgRB5HjwfaMYle3MDxyd0=
 
 create-ecdh@^4.0.0:
   version "4.0.4"
@@ -6655,7 +6668,7 @@ hmac-drbg@^1.0.1:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
-hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.1:
+hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.1:
   version "3.3.2"
   resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz"
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
@@ -10264,6 +10277,15 @@ react-clientside-effect@^1.2.2:
   dependencies:
     "@babel/runtime" "^7.12.13"
 
+react-countup@^4.3.3:
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/react-countup/-/react-countup-4.3.3.tgz#143a8d854d47290b73d6915eac20a12d839153c2"
+  integrity sha512-pWnxpwdPNRyJFha/YKKbyc4RLAw8PzmULdgCziGIgw6vxhT1VdccrvQgj38HBSoM2qF/MoLmn4M2klvDWVIdaw==
+  dependencies:
+    countup.js "^1.9.3"
+    prop-types "^15.7.2"
+    warning "^4.0.3"
+
 react-dev-utils@^11.0.3:
   version "11.0.4"
   resolved "https://registry.npmjs.org/react-dev-utils/-/react-dev-utils-11.0.4.tgz"
@@ -10334,6 +10356,13 @@ react-hooks-useform@^0.1.86:
   version "0.1.86"
   resolved "https://registry.npmjs.org/react-hooks-useform/-/react-hooks-useform-0.1.86.tgz"
   integrity sha512-peRWj1GMjnL1AdhBtVcF1pmgZXFjFn0sTI7+SlNOxSb5w9zB3NbkjVYIZZMQ8lt0ior2SeCAW+LgNMxHCsXPKQ==
+
+react-in-viewport@^1.0.0-alpha.17:
+  version "1.0.0-alpha.17"
+  resolved "https://registry.yarnpkg.com/react-in-viewport/-/react-in-viewport-1.0.0-alpha.17.tgz#0dc926684558033db0ad180d72746b82ca6453c1"
+  integrity sha512-TFDW50UD0o0e6Z/MVcEKUAMgY0bVciCCbQj5zbVCrVExAo2Is8ukTjQRXqNTeEZ5KKmskKT7ZnU4Dm7/hdm77w==
+  dependencies:
+    hoist-non-react-statics "^3.0.0"
 
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"

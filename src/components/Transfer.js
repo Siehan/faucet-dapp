@@ -1,4 +1,4 @@
-import { Text, Box, Input, Button, Image, Spacer } from "@chakra-ui/react";
+import { Box, Input, Button, Image, Spacer } from "@chakra-ui/react";
 import {
   FormLabel,
   NumberInput,
@@ -125,45 +125,40 @@ const Transfer = () => {
 
   return (
     <>
-      <Text align="center" fontSize="3xl">
-        Transfer
-      </Text>
-      <Box maxW="md" borderWidth="2px" borderRadius="md" boxShadow="2xl" p="10" overflow="hidden">
-        <Image src={transfert} alt="image" />
-        <Box w="75%">
-          <form onSubmit={handleSubmit(handleSubmitButton)} id="first-name" m={2}>
-            <FormLabel>To address</FormLabel>
-            <Input
-              placeholder="Receiver"
-              mb={2}
-              isRequired
-              {...register("transfer", {
-                minLength: { value: 42, message: "Please enter a valid address" },
-                maxLength: { value: 42, message: "Please enter a valid address" },
-              })}
-            />
-            {errors.transfer && <AlertPop title={errors.transfer.message} />}
-            <FormLabel>Amount</FormLabel>
-            <NumberInput isRequired min={1} mb={4}>
-              <NumberInputField {...register("amount")} />
-              <NumberInputStepper>
-                <NumberIncrementStepper />
-                <NumberDecrementStepper />
-              </NumberInputStepper>
-            </NumberInput>
-            <Button type="submit" colorScheme="teal" variant="solid" w="50%" m={2} mb={3} disabled={loading}>
-              {loading ? (
-                <>
-                  <CircularProgress fontSize="15px" isIndeterminate size="30px" color="green.300" />
-                  <Spacer />
-                  <p>Sending...</p>
-                </>
-              ) : (
-                "Send"
-              )}
-            </Button>
-          </form>
-        </Box>
+      <Box borderWidth="1px" borderRadius="lg" boxShadow="xl" p="10" overflow="hidden">
+        <Image src={transfert} alt="image" borderRadius="md" />
+        <form onSubmit={handleSubmit(handleSubmitButton)} id="first-name" m={2}>
+          <FormLabel>To address</FormLabel>
+          <Input
+            placeholder="Receiver"
+            mb={2}
+            isRequired
+            {...register("transfer", {
+              minLength: { value: 42, message: "Please enter a valid address" },
+              maxLength: { value: 42, message: "Please enter a valid address" },
+            })}
+          />
+          {errors.transfer && <AlertPop title={errors.transfer.message} />}
+          <FormLabel>Amount</FormLabel>
+          <NumberInput isRequired min={1} mb={4}>
+            <NumberInputField {...register("amount")} />
+            <NumberInputStepper>
+              <NumberIncrementStepper />
+              <NumberDecrementStepper />
+            </NumberInputStepper>
+          </NumberInput>
+          <Button type="submit" colorScheme="blue" variant="solid" w="30%" p={7} m={2} mb={3} disabled={loading}>
+            {loading ? (
+              <>
+                <CircularProgress fontSize="15px" isIndeterminate size="30px" color="green.300" />
+                <Spacer />
+                <p>Sending...</p>
+              </>
+            ) : (
+              "Send"
+            )}
+          </Button>
+        </form>
       </Box>
     </>
   );

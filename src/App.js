@@ -4,6 +4,7 @@ import DappFaucet from "./DappFaucet";
 import { useContract } from "web3-hooks";
 import { robinetTokenAddress, robinetTokenAbi } from "./contracts/RobinetToken";
 import { faucetAddress, faucetAbi } from "./contracts/Faucet";
+//import LandingPage from "../src/components/LandingPage";
 
 export const FaucetContext = React.createContext(null);
 
