@@ -1,3 +1,4 @@
+//Ok
 import docs from "../assets/docs.svg";
 import coffee from "../assets/coffee.svg";
 import screen from "../assets/screen.svg";
@@ -9,8 +10,8 @@ const Features = () => {
   const features = [
     {
       icon: coffee,
-      title: "Built for developers",
-      text: "AlyraKit is built to make your life easier. Variables, build tooling, documentation, and reusable components.",
+      title: "Robinet Token",
+      text: "Robinet Token is a token that we are pleased to offer you. You can claim it every 3 days.",
     },
     {
       icon: screen,

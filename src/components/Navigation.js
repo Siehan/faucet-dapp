@@ -1,3 +1,4 @@
+//Ok
 import { Box, Container, Link, useMediaQuery, useColorModeValue } from "@chakra-ui/react";
 import MobileNavigationDrawer from "./MobileNavigationDrawer";
 import NavigationListNav from "./NavigationListNav";
@@ -10,10 +11,10 @@ const Navigation = () => {
   return (
     <Box
       position="fixed"
-      py="4"
+      py="3"
       w="100%"
       bg={bg}
-      borderRadius="lg"
+      borderRadius="md"
       zIndex="sticky"
       bgGradient="linear(to-r, yellow,orange,red)"
       _hover={{
@@ -48,5 +49,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
-// bgGradient: "linear(to-r, green.500, blue.500)",

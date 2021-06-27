@@ -51,64 +51,62 @@ function Login({ title, desc, ...rest }) {
         </ModalContent>
       </Modal>
 
-      <Box id="login" w="100%" borderRadius="lg" shadow="xs">
-        <Container as="section" maxW="container.lg" pt="28" pb="10" {...rest}>
-          <SlideFadeOnScroll>
-            <Box flex="1">
-              <Heading
-                mb="6"
-                borderRadius="lg"
-                align="center"
-                bgGradient="linear(to-r, red, pink, red)"
-                _hover={{
-                  bgGradient: "linear(to-l, #3CAADD, #4FAA1B)",
-                }}
-              >
-                LOGIN
-              </Heading>
-            </Box>
-
-            <Stack
-              direction={["column-reverse", null, "row"]}
-              sx={{
-                gap: "2rem",
+      <Container id="login" as="section" maxW="container.lg" pt="20" pb="10" {...rest}>
+        <SlideFadeOnScroll>
+          <Box flex="1">
+            <Heading
+              mb="6"
+              borderRadius="md"
+              align="center"
+              bgGradient="linear(to-r, red, pink, red)"
+              _hover={{
+                bgGradient: "linear(to-l, #3CAADD, #4FAA1B)",
               }}
-              alignItems="center"
             >
-              <Heading size="md" mb={3} align="center" pt={4}>
-                <Box flex="1">
-                  <img src={robinet_wasserhahn_clean} width="500" height="378" alt="robinet" />
-                </Box>
-                The RobinetToken address :{" "}
-                <a
-                  href="https://rinkeby.etherscan.io/address/0x3ba7084e8e7848fD6483d5b48506Ff2190E11979"
-                  style={{ color: "red" }}
-                >
-                  {robinetTokenAddress}
-                </a>
-              </Heading>
+              LOGIN
+            </Heading>
+          </Box>
 
-              <Flex justifyContent="space-between" width="100%" mb={5} id="login">
-                <Button
-                  size="lg"
-                  colorScheme="yellow"
-                  onClick={() => (!web3State.isLogged ? handleClickLogin() : onOpenLogoutModal())}
-                >
-                  {!web3State.isLogged ? (
-                    "Log in"
-                  ) : web3State.chainId === 4 ? (
-                    web3State.account.split("").splice(0, 6).join("") +
-                    "..." +
-                    web3State.account.split("").splice(-4).join("")
-                  ) : (
-                    <p style={{ color: "red" }}>WRONG NETWORK</p>
-                  )}
-                </Button>
-              </Flex>
-            </Stack>
-          </SlideFadeOnScroll>
-        </Container>
-      </Box>
+          <Stack
+            direction={["column-reverse", null, "row"]}
+            sx={{
+              gap: "2rem",
+            }}
+            alignItems="center"
+          >
+            <Heading size="md" mb={3} align="center" pt={4}>
+              <Box flex="1">
+                <img src={robinet_wasserhahn_clean} width="500" height="378" alt="robinet" />
+              </Box>
+              The RobinetToken address :{" "}
+              <a
+                href="https://rinkeby.etherscan.io/address/0x3ba7084e8e7848fD6483d5b48506Ff2190E11979"
+                style={{ color: "red" }}
+              >
+                {robinetTokenAddress}
+              </a>
+            </Heading>
+
+            <Flex justifyContent="space-between" width="100%" mb={5} id="login">
+              <Button
+                size="lg"
+                colorScheme="yellow"
+                onClick={() => (!web3State.isLogged ? handleClickLogin() : onOpenLogoutModal())}
+              >
+                {!web3State.isLogged ? (
+                  "Log in"
+                ) : web3State.chainId === 4 ? (
+                  web3State.account.split("").splice(0, 6).join("") +
+                  "..." +
+                  web3State.account.split("").splice(-4).join("")
+                ) : (
+                  <p style={{ color: "red" }}>WRONG NETWORK</p>
+                )}
+              </Button>
+            </Flex>
+          </Stack>
+        </SlideFadeOnScroll>
+      </Container>
     </>
   );
 }

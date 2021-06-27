@@ -13,17 +13,14 @@ const LandingPage = () => {
     <div>
       <Navigation />
       <Header />
-
       <main>
+        <Features />
         <Login />
         <Faucet />
         <RobinetToken />
         <Feature />
-
-        <Features />
         <Receipt />
       </main>
-
       <Footer />
     </div>
   );
