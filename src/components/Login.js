@@ -1,10 +1,11 @@
 import { Web3Context } from "web3-hooks";
 import { useContext } from "react";
-import { Button, Container, Flex, Box, Stack } from "@chakra-ui/react";
+import { Button, Container, Box, Stack } from "@chakra-ui/react";
 import { Text, Heading, useDisclosure } from "@chakra-ui/react";
 import { robinetTokenAddress } from "../contracts/RobinetToken";
 import SlideFadeOnScroll from "./SlideFadeOnScroll";
-import robinet_wasserhahn_clean from "../assets/robinet_wasserhahn_clean.jpg";
+//import robinet_wasserhahn_clean from "../assets/robinet_wasserhahn_clean.jpg";
+import eau_du_robinet2_pixel_perfect from "../assets/eau_du_robinet2_pixel_perfect.svg";
 
 import {
   Modal,
@@ -57,10 +58,11 @@ function Login({ title, desc, ...rest }) {
             <Heading
               mb="6"
               borderRadius="md"
+              textShadow="1px 4px orange"
               align="center"
-              bgGradient="linear(to-r, red, pink, red)"
+              bgGradient="linear(to-l, #48BB78, #81E6D9)"
               _hover={{
-                bgGradient: "linear(to-l, #3CAADD, #4FAA1B)",
+                bgGradient: "linear(to-r, #ED64A6, #805AD5)",
               }}
             >
               LOGIN
@@ -68,33 +70,22 @@ function Login({ title, desc, ...rest }) {
           </Box>
 
           <Stack
+            alignItems="center"
+            margin="10"
             direction={["column-reverse", null, "row"]}
             sx={{
               gap: "2rem",
             }}
-            alignItems="center"
           >
-            <Heading size="md" mb={3} align="center" pt={4}>
-              <Box flex="1">
-                <img src={robinet_wasserhahn_clean} width="500" height="378" alt="robinet" />
-              </Box>
-              The RobinetToken address :{" "}
-              <a
-                href="https://rinkeby.etherscan.io/address/0x3ba7084e8e7848fD6483d5b48506Ff2190E11979"
-                style={{ color: "red" }}
-              >
-                {robinetTokenAddress}
-              </a>
-            </Heading>
-
-            <Flex justifyContent="space-between" width="100%" mb={5} id="login">
+            <Box>
               <Button
+                id="login"
                 size="lg"
-                colorScheme="yellow"
+                bg="orange"
                 onClick={() => (!web3State.isLogged ? handleClickLogin() : onOpenLogoutModal())}
               >
                 {!web3State.isLogged ? (
-                  "Log in"
+                  "Log in to your account"
                 ) : web3State.chainId === 4 ? (
                   web3State.account.split("").splice(0, 6).join("") +
                   "..." +
@@ -103,8 +94,22 @@ function Login({ title, desc, ...rest }) {
                   <p style={{ color: "red" }}>WRONG NETWORK</p>
                 )}
               </Button>
-            </Flex>
+            </Box>
+
+            <Box>
+              <img src={eau_du_robinet2_pixel_perfect} width="350" height="200" alt="Pixel perfect2" />
+            </Box>
           </Stack>
+
+          <Heading size="md" align="center" pt={2}>
+            The RobinetToken address :{" "}
+            <a
+              href="https://rinkeby.etherscan.io/address/0x3ba7084e8e7848fD6483d5b48506Ff2190E11979"
+              style={{ color: "#4299E1" }}
+            >
+              {robinetTokenAddress}
+            </a>
+          </Heading>
         </SlideFadeOnScroll>
       </Container>
     </>
@@ -112,3 +117,27 @@ function Login({ title, desc, ...rest }) {
 }
 
 export default Login;
+
+/*
+<Box flex="1" align="center" borderRadius="md">
+ <img src={robinet_wasserhahn_clean} width="500" height="378" alt="robinet blanc" />
+</Box>
+*/
+
+/*
+
+<div>
+Icônes conçues par{" "}
+<a href="https://www.flaticon.com/fr/auteurs/pixel-perfect" title="Pixel perfect">
+Pixel perfect
+</a>{" "}
+from{" "}
+<a href="https://www.flaticon.com/fr/" title="Flaticon">
+ www.flaticon.com
+</a>
+</div>
+*/
+
+/*
+<div>Icônes conçues par <a href="https://www.flaticon.com/fr/auteurs/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/fr/" title="Flaticon">www.flaticon.com</a></div>
+ */

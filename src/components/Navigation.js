@@ -1,8 +1,10 @@
 //Ok
 import { Box, Container, Link, useMediaQuery, useColorModeValue } from "@chakra-ui/react";
-import MobileNavigationDrawer from "./MobileNavigationDrawer";
-import NavigationListNav from "./NavigationListNav";
+import MobileNavigation from "./MobileNavigation";
+import NavigationListItems from "./NavigationListItems";
 import SwitchColorMode from "./SwitchColorMode";
+import { Avatar, Wrap, WrapItem } from "@chakra-ui/react";
+import eau_du_robinet1_pixel_perfect from "../assets/eau_du_robinet1_pixel_perfect.svg";
 
 const Navigation = () => {
   const [isMobile] = useMediaQuery("(max-width: 720px)");
@@ -22,9 +24,9 @@ const Navigation = () => {
       }}
     >
       <Container
+        alignItems="center"
         as="nav"
         maxW="container.lg"
-        alignItems="center"
         d="flex"
         sx={{
           "a:hover": {
@@ -32,15 +34,28 @@ const Navigation = () => {
           },
         }}
       >
+        <Wrap>
+          <WrapItem>
+            <Avatar
+              marginX="4"
+              size="md"
+              name="Robinet Token"
+              img
+              src={eau_du_robinet1_pixel_perfect}
+              alt="Pixel perfect1"
+            />{" "}
+          </WrapItem>
+        </Wrap>
+
         <Link href="/" fontWeight="bold" fontSize="2xl" mr="auto">
           Robinet Token
         </Link>
         {isMobile ? (
-          <MobileNavigationDrawer>
-            <NavigationListNav />
-          </MobileNavigationDrawer>
+          <MobileNavigation>
+            <NavigationListItems />
+          </MobileNavigation>
         ) : (
-          <NavigationListNav sx={{ display: "flex" }} />
+          <NavigationListItems sx={{ display: "flex" }} />
         )}
         <SwitchColorMode />
       </Container>

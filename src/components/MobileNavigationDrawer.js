@@ -12,7 +12,7 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 
-const MobileNavigationDrawer = ({ children }) => {
+const MobileNavigation = ({ children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
 
@@ -30,4 +30,4 @@ const MobileNavigationDrawer = ({ children }) => {
   );
 };
 
-export default MobileNavigationDrawer;
+export default MobileNavigation;

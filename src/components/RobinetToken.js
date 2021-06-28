@@ -13,11 +13,12 @@ const RobinetToken = () => {
           <Box flex="1">
             <Heading
               mb="6"
-              borderRadius="lg"
+              borderRadius="md"
+              textShadow="1px 4px orange"
               align="center"
-              bgGradient="linear(to-r, yellow,orange,red)"
+              bgGradient="linear(to-l, #48BB78, #81E6D9)"
               _hover={{
-                bgGradient: "linear(to-l, #3CAADD, #4FAA1B)",
+                bgGradient: "linear(to-r, #ED64A6, #805AD5)",
               }}
             >
               FUNCTIONALITY RBT

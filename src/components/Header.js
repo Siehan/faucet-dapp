@@ -5,7 +5,7 @@ import SlideFadeOnScroll from "./SlideFadeOnScroll";
 
 const Header = () => {
   return (
-    <Container as="header" maxW="container.lg" pt="20" pb="10">
+    <Container as="header" maxW="container.lg" pt="28" pb="10">
       <SlideFadeOnScroll>
         <Stack
           direction={["column-reverse", null, "row"]}
@@ -15,7 +15,7 @@ const Header = () => {
           alignItems="center"
         >
           <Box flex="1">
-            <Heading textShadow="1px 3px orange" mb="6">
+            <Heading mb="6" fontSize={35} textShadow="1px 3px orange">
               Welcome to{" "}
               <Text as="span" color="teal">
                 Faucet
@@ -25,10 +25,9 @@ const Header = () => {
               Get a free Robinet Token !!!
             </Text>{" "}
             <Button as="a" href="#login" size="lg" colorScheme="teal">
-              Login
+              Go to Login
             </Button>
           </Box>
-
           <Box flex="1">
             <img src={woman_desk} alt="woman desk" width="500" height="378" />
           </Box>

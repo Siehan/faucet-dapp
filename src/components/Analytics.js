@@ -27,7 +27,7 @@ const Analytics = () => {
 
   return (
     <>
-      <Box bg="tomato" borderWidth="1px" borderRadius="lg" boxShadow="xl" p={10} overflow="hidden">
+      <Box bg="tomato" borderWidth="1px" borderRadius="md" boxShadow="xl" p={10} overflow="hidden">
         <Text fontSize="xl">NAME : {token.name}</Text>
         <Text fontSize="xl">SYMBOL : {token.symbol}</Text>
         <Text fontSize="xl">DECIMALS : {token.decimals}</Text>

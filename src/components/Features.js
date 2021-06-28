@@ -16,7 +16,7 @@ const Features = () => {
     {
       icon: screen,
       title: "Designed to be modern",
-      text: "Designed with the latest design trends in mind. AlyraKit feels modern, minimal, and beautiful.",
+      text: "Designed with the latest design trends in mind. Faucet feels modern, minimal, and beautiful.",
     },
     {
       icon: docs,

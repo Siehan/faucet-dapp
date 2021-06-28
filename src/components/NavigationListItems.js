@@ -1,7 +1,7 @@
 //Ok
 import { List, ListItem, Link } from "@chakra-ui/react";
 
-const NavigationListNav = ({ sx }) => {
+const NavigationListItems = ({ sx }) => {
   return (
     <List sx={{ textTransform: "uppercase", a: { fontSize: "18px", p: 2, display: "inline-block" }, ...sx }}>
       <ListItem>
@@ -23,4 +23,4 @@ const NavigationListNav = ({ sx }) => {
   );
 };
 
-export default NavigationListNav;
+export default NavigationListItems;

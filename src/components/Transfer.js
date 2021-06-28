@@ -125,7 +125,7 @@ const Transfer = () => {
 
   return (
     <>
-      <Box borderWidth="1px" borderRadius="lg" boxShadow="xl" p="10" overflow="hidden">
+      <Box borderWidth="1px" borderRadius="md" boxShadow="xl" p="10" overflow="hidden">
         <Image src={transfert} alt="image" borderRadius="md" />
         <form onSubmit={handleSubmit(handleSubmitButton)} id="first-name" m={2}>
           <FormLabel>To address</FormLabel>
