@@ -4,7 +4,7 @@ import MobileNavigation from "./MobileNavigation";
 import NavigationListItems from "./NavigationListItems";
 import SwitchColorMode from "./SwitchColorMode";
 import { Avatar, Wrap, WrapItem } from "@chakra-ui/react";
-import eau_du_robinet1_pixel_perfect from "../assets/eau_du_robinet1_pixel_perfect.svg";
+import eau_du_robinet1_pixel_perfect from "../assets/images/eau_du_robinet1_pixel_perfect.svg";
 
 const Navigation = () => {
   const [isMobile] = useMediaQuery("(max-width: 720px)");

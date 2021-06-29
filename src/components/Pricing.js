@@ -49,7 +49,7 @@ const Pricing = () => {
   };
 
   return (
-    <Box as="section" bg={bg} id="pricing" py="20">
+    <Box as="section" bg={bg} id="pricing" py="20" borderRadius="md">
       <Container maxW="container.md">
         <SlideFadeOnScroll>
           <Heading textAlign="center" mb="6" fontFamily="special">

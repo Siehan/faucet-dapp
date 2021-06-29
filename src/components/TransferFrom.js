@@ -1,4 +1,4 @@
-import { Box, Input, Button, Image, Spacer } from "@chakra-ui/react";
+import { Box, Button, Container, Image, Input, Spacer, useColorModeValue } from "@chakra-ui/react";
 import { FormLabel } from "@chakra-ui/react";
 import transferFrom from "../assets/images/transferFrom.jpg";
 import {
@@ -31,6 +31,7 @@ const TransfertFrom = () => {
   const [allowance, setallowance] = useState({ address: "", amount: 0, isAddress: false });
   const toast = useToast();
   const { robinetToken } = useContext(FaucetContext);
+  const bg = useColorModeValue("gray.20", "orange.500");
 
   const handleSender = async (e) => {
     setallowance({ address: e.target.value, amount: 0, isAddress: false });
@@ -100,57 +101,78 @@ const TransfertFrom = () => {
   };
 
   return (
-    <>
-      <Box borderWidth="1px" borderRadius="lg" boxShadow="xl" p="10" overflow="hidden">
-        <Image src={transferFrom} alt="image" borderRadius="md" />
-        <form onSubmit={handleSubmit(handleSubmitButton)} variant="outline" w="75%" m={2} id="first-name" isRequired>
-          <FormLabel>From</FormLabel>
-          <Input value={allowance.address} onChange={handleSender} placeholder="Sender" isRequired />
-          {allowance.isAddress && (
-            <>
-              {allowance.amount > 0 ? (
-                <Badge colorScheme="green">
-                  Your are allowed to send {allowance.amount} {token.symbol} from this account
-                </Badge>
-              ) : (
-                <Badge colorScheme="red">You have no allowance on this address</Badge>
-              )}
-            </>
-          )}
-          <FormLabel mt={2}>Amount</FormLabel>
-          <NumberInput isRequired min={1} max={allowance.amount || 1000000} mb={4}>
-            <NumberInputField {...register("amountFrom")} />
-            <NumberInputStepper>
-              <NumberIncrementStepper />
-              <NumberDecrementStepper />
-            </NumberInputStepper>
-          </NumberInput>
-          <FormLabel>To</FormLabel>
-          <Input
-            mb={2}
-            variant="outline"
-            placeholder="Receiver"
-            isRequired
-            {...register("transferTo", {
-              minLength: { value: 42, message: "Please enter a valid address" },
-              maxLength: { value: 42, message: "Please enter a valid address" },
-            })}
-          />
-          {errors.transferTo && <AlertPop title={errors.transferTo.message} />}
-          <Button type="submit" bg="#0eb4ce" variant="solid" w="30%" p={7} m={2} mb={3} disabled={loading}>
-            {loading ? (
-              <>
-                <CircularProgress fontSize="15px" isIndeterminate size="30px" color="green.300" />
-                <Spacer />
-                <p>Sending...</p>
-              </>
+    <Container
+      bg={bg}
+      maxW="container.lg"
+      as="section"
+      boxShadow="xl"
+      borderRadius="md"
+      id="faucet"
+      overflow="hidden"
+      paddingX="5"
+      paddingY="5"
+    >
+      <Image src={transferFrom} alt="transfer from" borderRadius="md" />
+      <form onSubmit={handleSubmit(handleSubmitButton)} variant="outline" w="75%" m={2} id="first-name" isRequired>
+        <FormLabel fontSize="lg">From</FormLabel>
+        <Input value={allowance.address} onChange={handleSender} placeholder="Sender" isRequired />
+        {allowance.isAddress && (
+          <>
+            {allowance.amount > 0 ? (
+              <Badge colorScheme="green">
+                Your are allowed to send {allowance.amount} {token.symbol} from this account
+              </Badge>
             ) : (
-              "Send"
+              <Badge colorScheme="red">You have no allowance on this address</Badge>
             )}
-          </Button>
-        </form>
-      </Box>
-    </>
+          </>
+        )}
+
+        <FormLabel mt={2} fontSize="lg">
+          Amount
+        </FormLabel>
+        <NumberInput isRequired min={1} max={allowance.amount || 1000000} mb={4}>
+          <NumberInputField {...register("amountFrom")} />
+          <NumberInputStepper>
+            <NumberIncrementStepper />
+            <NumberDecrementStepper />
+          </NumberInputStepper>
+        </NumberInput>
+        <FormLabel fontSize="lg">To</FormLabel>
+        <Input
+          mb={2}
+          variant="outline"
+          placeholder="Receiver"
+          isRequired
+          {...register("transferTo", {
+            minLength: { value: 42, message: "Please enter a valid address" },
+            maxLength: { value: 42, message: "Please enter a valid address" },
+          })}
+        />
+        {errors.transferTo && <AlertPop title={errors.transferTo.message} />}
+        <Button
+          type="submit"
+          fontSize="lg"
+          bg={"#0eb4ce"}
+          variant="solid"
+          w="20%"
+          p={7}
+          m={2}
+          mb={3}
+          disabled={loading}
+        >
+          {loading ? (
+            <>
+              <CircularProgress fontSize="15px" isIndeterminate size="30px" color="green.300" />
+              <Spacer />
+              <p>Sending...</p>
+            </>
+          ) : (
+            "Send"
+          )}
+        </Button>
+      </form>
+    </Container>
   );
 };
 

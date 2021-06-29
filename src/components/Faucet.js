@@ -1,12 +1,11 @@
 import { useContext, useState } from "react";
-//import RobinetToken from "./RobinetToken";
 import { useToast } from "@chakra-ui/react";
 import { useToken } from "../context/TokenContext";
 import { FaucetContext } from "../App";
 import SlideFadeOnScroll from "./SlideFadeOnScroll";
 
-import { Button, Flex, Box, Container, Stack, useColorModeValue } from "@chakra-ui/react"; // useColorModeValue,
-import { rest, Heading, Spacer, CircularProgress } from "@chakra-ui/react";
+import { Button, Box, Container, useColorModeValue } from "@chakra-ui/react";
+import { rest, Heading, CircularProgress } from "@chakra-ui/react";
 
 function Faucet() {
   const { faucet } = useContext(FaucetContext);
@@ -15,7 +14,6 @@ function Faucet() {
   const [loading, setLoading] = useState(false);
   const bg = useColorModeValue("gray.50", "teal.700");
   console.log(faucet);
-  //const bg = useColorModeValue("gray.50", "yellow.500");
 
   const handleClaimToken = async () => {
     setLoading(true);
@@ -24,7 +22,7 @@ function Faucet() {
       await tx.wait();
       toast({
         title: "Confirmed transaction",
-        description: `Success !! we sent you 100 ${token.symbol}`,
+        description: `Success !! We sent you 100 ${token.symbol}`,
         status: "success",
         duration: 5000,
         isClosable: true,
@@ -54,8 +52,8 @@ function Faucet() {
 
   return (
     <>
-      <Box as="section" bg={bg} id="faucet" pt="20" pb="20">
-        <Container maxW="container.lg">
+      <Box bg={bg}>
+        <Container as="section" borderRadius="md" id="faucet" maxW="container.lg" pt="20" pb="10">
           <SlideFadeOnScroll>
             <Box flex="1">
               <Heading
@@ -72,56 +70,38 @@ function Faucet() {
               </Heading>
             </Box>
 
-            <Stack
-              direction={["column-reverse", null, "row"]}
-              sx={{
-                gap: "2rem",
-              }}
-              alignItems="center"
-            >
-              <Flex
-                flexDirection="column"
-                overflow="hidden"
-                alignItems="center"
-                m={4}
-                p={10}
-                boxShadow="xl"
-                borderRadius="md"
-                borderWidth="1px"
-                flex="1"
-                {...rest}
-              >
-                <Heading align="center" fontSize="5xl" mb={20}>
-                  🔥 🔥 CLAIM {} RIGHT NOW ! 🔥 🔥
-                </Heading>
-                <Spacer />
-                <Box w="300px" p={5} border="1px" borderColor="yellow.300" rounded="3xl" fontWeight="bold" mb={20}>
-                  YOUR RBT BALANCE : {balance}
-                </Box>
+            <Box flex="1" align="center" borderRadius="md" boxShadow="xl" p="10" overflow="hidden" {...rest}>
+              <Heading fontSize="5xl" mb={20}>
+                🔥 🔥 CLAIM RIGHT NOW ! 🔥 🔥
+              </Heading>
 
-                <Button
-                  onClick={handleClaimToken}
-                  bgGradient="linear(to-r, red,orange,yellow)"
-                  _hover={{
-                    bgGradient: "linear(to-l, red,orange,yellow)",
-                  }}
-                  rounded="xl"
-                  size="lg"
-                  height="60px"
-                  width="300px"
-                  disabled={loading}
-                >
-                  {loading ? (
-                    <>
-                      <CircularProgress fontSize="15px" isIndeterminate size="30px" color="green.300" />
-                      <p>Claiming...</p>
-                    </>
-                  ) : (
-                    "Claim 100 RBT"
-                  )}
-                </Button>
-              </Flex>
-            </Stack>
+              <Button
+                onClick={handleClaimToken}
+                bgGradient="linear(to-r, red,orange,yellow)"
+                _hover={{
+                  bgGradient: "linear(to-l, red,orange,yellow)",
+                }}
+                borderRadius="3xl"
+                mb={20}
+                size="2xl"
+                height="60px"
+                width="300px"
+                disabled={loading}
+              >
+                {loading ? (
+                  <>
+                    <CircularProgress fontSize="15px" isIndeterminate size="30px" color="green.300" />
+                    <p>Claiming...</p>
+                  </>
+                ) : (
+                  "Claim 100 RBT"
+                )}
+              </Button>
+
+              <Box w="300px" p={5} boxShadow="xl" borderRadius="md" fontWeight="bold" mb={10}>
+                YOUR RBT BALANCE : {balance}
+              </Box>
+            </Box>
           </SlideFadeOnScroll>
         </Container>
       </Box>

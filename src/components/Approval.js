@@ -1,4 +1,4 @@
-import { Box, Input, Button, Image, Spacer } from "@chakra-ui/react";
+import { Box, Button, Container, Image, Input, Spacer, useColorModeValue } from "@chakra-ui/react";
 import {
   FormLabel,
   NumberInput,
@@ -7,7 +7,7 @@ import {
   NumberIncrementStepper,
   NumberInputStepper,
 } from "@chakra-ui/react";
-import approve from "../assets/images/approve.jpg";
+import approved from "../assets/images/approved.jpg";
 import { useToken } from "../context/TokenContext";
 import { useContext, useState, useEffect } from "react";
 import { Web3Context } from "web3-hooks";
@@ -29,6 +29,7 @@ const Approval = () => {
   } = useForm();
   const toast = useToast();
   const { robinetToken } = useContext(FaucetContext);
+  const bg = useColorModeValue("gray.20", "green.700");
 
   const handleSubmitButton = async (data) => {
     const amount = ethers.utils.parseEther(data.amountApprove);
@@ -101,43 +102,62 @@ const Approval = () => {
     }
   }, [robinetToken, toast, token, web3State.account]);
   return (
-    <>
-      <Box borderWidth="1px" borderRadius="lg" boxShadow="xl" p="10" overflow="hidden">
-        <Image borderRadius="md" src={approve} alt="image" />
-        <form onSubmit={handleSubmit(handleSubmitButton)} id="first-name" m={2}>
-          <FormLabel>To address</FormLabel>
-          <Input
-            placeholder="Authorize this contract to spend your moula"
-            mb={2}
-            isRequired
-            {...register("approveAddress", {
-              minLength: { value: 42, message: "Please enter a valid address" },
-              maxLength: { value: 42, message: "Please enter a valid address" },
-            })}
-          />
-          {errors.approveAddress && <AlertPop title={errors.approveAddress.message} />}
-          <FormLabel>Amount</FormLabel>
-          <NumberInput isRequired min={1} mb={4}>
-            <NumberInputField {...register("amountApprove")} />
-            <NumberInputStepper>
-              <NumberIncrementStepper />
-              <NumberDecrementStepper />
-            </NumberInputStepper>
-          </NumberInput>
-          <Button type="submit" bg="green" variant="solid" w="30%" p={7} m={2} mb={3} disabled={loading}>
-            {loading ? (
-              <>
-                <CircularProgress fontSize="15px" isIndeterminate size="30px" color="green.300" />
-                <Spacer />
-                <p>Approving...</p>
-              </>
-            ) : (
-              "Approve"
-            )}
-          </Button>
-        </form>
-      </Box>
-    </>
+    <Container
+      bg={bg}
+      maxW="container.lg"
+      as="section"
+      boxShadow="xl"
+      borderRadius="md"
+      id="faucet"
+      overflow="hidden"
+      paddingX="5"
+      paddingY="5"
+    >
+      <Image src={approved} alt="approved" borderRadius="md" />
+
+      <form onSubmit={handleSubmit(handleSubmitButton)} id="first-name" m={2}>
+        <FormLabel fontSize="lg">To address</FormLabel>
+        <Input
+          placeholder="Authorize this contract to spend your moula"
+          mb={2}
+          isRequired
+          {...register("approveAddress", {
+            minLength: { value: 42, message: "Please enter a valid address" },
+            maxLength: { value: 42, message: "Please enter a valid address" },
+          })}
+        />
+        {errors.approveAddress && <AlertPop title={errors.approveAddress.message} />}
+        <FormLabel fontSize="lg">Amount</FormLabel>
+        <NumberInput isRequired min={1} mb={4}>
+          <NumberInputField {...register("amountApprove")} />
+          <NumberInputStepper>
+            <NumberIncrementStepper />
+            <NumberDecrementStepper />
+          </NumberInputStepper>
+        </NumberInput>
+        <Button
+          type="submit"
+          fontSize="lg"
+          colorScheme="green"
+          variant="solid"
+          w="20%"
+          p={7}
+          m={2}
+          mb={3}
+          disabled={loading}
+        >
+          {loading ? (
+            <>
+              <CircularProgress fontSize="15px" isIndeterminate size="30px" color="green.300" />
+              <Spacer />
+              <p>Approving...</p>
+            </>
+          ) : (
+            "Approve"
+          )}
+        </Button>
+      </form>
+    </Container>
   );
 };
 

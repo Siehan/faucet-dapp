@@ -1,6 +1,6 @@
 //Ok
 import { Container, Heading, Text, Button, Stack, Box } from "@chakra-ui/react";
-import woman_desk from "../assets/woman_desk.svg";
+import woman_desk from "../assets/images/woman_desk.svg";
 import SlideFadeOnScroll from "./SlideFadeOnScroll";
 
 const Header = () => {

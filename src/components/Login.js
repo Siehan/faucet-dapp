@@ -4,8 +4,7 @@ import { Button, Container, Box, Stack } from "@chakra-ui/react";
 import { Text, Heading, useDisclosure } from "@chakra-ui/react";
 import { robinetTokenAddress } from "../contracts/RobinetToken";
 import SlideFadeOnScroll from "./SlideFadeOnScroll";
-//import robinet_wasserhahn_clean from "../assets/robinet_wasserhahn_clean.jpg";
-import eau_du_robinet2_pixel_perfect from "../assets/eau_du_robinet2_pixel_perfect.svg";
+import eau_du_robinet2_pixel_perfect from "../assets/images/eau_du_robinet2_pixel_perfect.svg";
 
 import {
   Modal,
@@ -52,7 +51,7 @@ function Login({ title, desc, ...rest }) {
         </ModalContent>
       </Modal>
 
-      <Container id="login" as="section" maxW="container.lg" pt="20" pb="10" {...rest}>
+      <Container id="login" borderRadius="md" as="section" maxW="container.lg" pt="20" pb="10" {...rest}>
         <SlideFadeOnScroll>
           <Box flex="1">
             <Heading
@@ -97,7 +96,7 @@ function Login({ title, desc, ...rest }) {
             </Box>
 
             <Box>
-              <img src={eau_du_robinet2_pixel_perfect} width="350" height="200" alt="Pixel perfect2" />
+              <img src={eau_du_robinet2_pixel_perfect} width="300" height="150" alt="Pixel perfect2" />
             </Box>
           </Stack>
 

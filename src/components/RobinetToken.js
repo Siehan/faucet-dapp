@@ -3,16 +3,16 @@ import Transfer from "./Transfer";
 import Approval from "./Approval";
 import TransferFrom from "./TransferFrom";
 import SlideFadeOnScroll from "./SlideFadeOnScroll";
-import { Box, Container, Stack, Heading } from "@chakra-ui/react";
+import { Box, Container, Heading } from "@chakra-ui/react";
 
 const RobinetToken = () => {
   return (
     <>
-      <Container as="section" maxW="container.lg" id="functionality-RBT" pt="20" pb="10">
+      <Container as="section" borderRadius="md" maxW="container.lg" id="functionality-RBT" pt="20" pb="10">
         <SlideFadeOnScroll>
           <Box flex="1">
             <Heading
-              mb="6"
+              mb="20"
               borderRadius="md"
               textShadow="1px 4px orange"
               align="center"
@@ -25,43 +25,71 @@ const RobinetToken = () => {
             </Heading>
           </Box>
 
-          <Stack
-            direction={["column-reverse", null, "row"]}
-            sx={{
-              gap: "2rem",
-            }}
-            alignItems="center"
-          >
-            <Box flex="1">
-              <Heading py="25" textAlign="center" textColor="tomato" fontWeight="normal">
-                Analytics
-              </Heading>
-              <Box>
-                <Analytics />
-              </Box>
-
-              <Heading py="25" textAlign="center" textColor="teal.500" fontWeight="normal">
-                Transfer
-              </Heading>
-              <Box align="center">
-                <Transfer />
-              </Box>
-
-              <Heading py="25" textAlign="center" textColor="teal.500" fontWeight="normal">
-                Approval
-              </Heading>
-              <Box align="center" textColor="teal.500">
-                <Approval />
-              </Box>
-
-              <Heading py="25" textAlign="center" textColor="teal.500" fontWeight="normal">
-                TransferFrom
-              </Heading>
-              <Box align="center">
-                <TransferFrom />
-              </Box>
+          <Box flex="1">
+            <Heading
+              marginInlineStart={"25%"}
+              marginInlineEnd={"25%"}
+              borderWidth="1px"
+              textAlign="center"
+              textColor="teal.500"
+              fontWeight="normal"
+              boxShadow="xl"
+              borderRadius="2xl"
+            >
+              Analytics
+            </Heading>
+            <Box pb={20} pt={6}>
+              <Analytics />
             </Box>
-          </Stack>
+
+            <Heading
+              marginInlineStart={"25%"}
+              marginInlineEnd={"25%"}
+              borderWidth="1px"
+              textAlign="center"
+              textColor="teal.500"
+              fontWeight="normal"
+              boxShadow="xl"
+              borderRadius="2xl"
+            >
+              Transfer
+            </Heading>
+            <Box align="center" pb={20} pt={6}>
+              <Transfer />
+            </Box>
+
+            <Heading
+              marginInlineStart={"25%"}
+              marginInlineEnd={"25%"}
+              borderWidth="1px"
+              textAlign="center"
+              textColor="teal.500"
+              fontWeight="normal"
+              boxShadow="xl"
+              borderRadius="2xl"
+            >
+              Approval
+            </Heading>
+            <Box align="center" pb={20} pt={6}>
+              <Approval />
+            </Box>
+
+            <Heading
+              marginInlineStart={"25%"}
+              marginInlineEnd={"25%"}
+              borderWidth="1px"
+              textAlign="center"
+              textColor="teal.500"
+              fontWeight="normal"
+              boxShadow="xl"
+              borderRadius="2xl"
+            >
+              TransferFrom
+            </Heading>
+            <Box align="center" pt={6}>
+              <TransferFrom />
+            </Box>
+          </Box>
         </SlideFadeOnScroll>
       </Container>
     </>

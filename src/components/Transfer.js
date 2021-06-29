@@ -1,4 +1,4 @@
-import { Box, Input, Button, Image, Spacer } from "@chakra-ui/react";
+import { Box, Button, Container, Image, Input, Spacer, useColorModeValue } from "@chakra-ui/react";
 import {
   FormLabel,
   NumberInput,
@@ -13,7 +13,7 @@ import { useForm } from "react-hook-form";
 import { useToast } from "@chakra-ui/react";
 import { FaucetContext } from "../App";
 import { ethers } from "ethers";
-import transfert from "../assets/images/transfer.jpg";
+import transfer from "../assets/images/transfer.jpg";
 import AlertPop from "./AlertPop";
 import { CircularProgress } from "@chakra-ui/react";
 import { Web3Context } from "web3-hooks";
@@ -29,6 +29,7 @@ const Transfer = () => {
   const [loading, setLoading] = useState(false);
   const toast = useToast();
   const { robinetToken } = useContext(FaucetContext);
+  const bg = useColorModeValue("gray.20", "blue.700");
 
   useEffect(() => {
     if (robinetToken) {
@@ -124,44 +125,65 @@ const Transfer = () => {
   };
 
   return (
-    <>
-      <Box borderWidth="1px" borderRadius="md" boxShadow="xl" p="10" overflow="hidden">
-        <Image src={transfert} alt="image" borderRadius="md" />
-        <form onSubmit={handleSubmit(handleSubmitButton)} id="first-name" m={2}>
-          <FormLabel>To address</FormLabel>
-          <Input
-            placeholder="Receiver"
-            mb={2}
-            isRequired
-            {...register("transfer", {
-              minLength: { value: 42, message: "Please enter a valid address" },
-              maxLength: { value: 42, message: "Please enter a valid address" },
-            })}
-          />
-          {errors.transfer && <AlertPop title={errors.transfer.message} />}
-          <FormLabel>Amount</FormLabel>
-          <NumberInput isRequired min={1} mb={4}>
-            <NumberInputField {...register("amount")} />
-            <NumberInputStepper>
-              <NumberIncrementStepper />
-              <NumberDecrementStepper />
-            </NumberInputStepper>
-          </NumberInput>
-          <Button type="submit" colorScheme="blue" variant="solid" w="30%" p={7} m={2} mb={3} disabled={loading}>
-            {loading ? (
-              <>
-                <CircularProgress fontSize="15px" isIndeterminate size="30px" color="green.300" />
-                <Spacer />
-                <p>Sending...</p>
-              </>
-            ) : (
-              "Send"
-            )}
-          </Button>
-        </form>
-      </Box>
-    </>
+    <Container
+      bg={bg}
+      maxW="container.lg"
+      as="section"
+      boxShadow="xl"
+      borderRadius="md"
+      id="faucet"
+      overflow="hidden"
+      paddingX="5"
+      paddingY="5"
+    >
+      <Image src={transfer} alt="transfer" borderRadius="md" />
+
+      <form onSubmit={handleSubmit(handleSubmitButton)} id="first-name" m={2}>
+        <FormLabel fontSize="lg">To address</FormLabel>
+        <Input
+          placeholder="Receiver"
+          mb={2}
+          isRequired
+          {...register("transfer", {
+            minLength: { value: 42, message: "Please enter a valid address" },
+            maxLength: { value: 42, message: "Please enter a valid address" },
+          })}
+        />
+        {errors.transfer && <AlertPop title={errors.transfer.message} />}
+        <FormLabel fontSize="lg">Amount</FormLabel>
+        <NumberInput isRequired min={1} mb={4}>
+          <NumberInputField {...register("amount")} />
+          <NumberInputStepper>
+            <NumberIncrementStepper />
+            <NumberDecrementStepper />
+          </NumberInputStepper>
+        </NumberInput>
+        <Button
+          type="submit"
+          fontSize="lg"
+          colorScheme="blue"
+          variant="solid"
+          w="20%"
+          p={7}
+          m={2}
+          mb={3}
+          disabled={loading}
+        >
+          {loading ? (
+            <>
+              <CircularProgress fontSize="15px" isIndeterminate size="30px" color="green.300" />
+              <Spacer />
+              <p>Sending...</p>
+            </>
+          ) : (
+            "Send"
+          )}
+        </Button>
+      </form>
+    </Container>
   );
 };
 
 export default Transfer;
+
+// <Box borderRadius="md" boxShadow="xl" p="10" overflow="hidden">

@@ -1,7 +1,7 @@
 //Ok
-import docs from "../assets/docs.svg";
-import coffee from "../assets/coffee.svg";
-import screen from "../assets/screen.svg";
+import docs from "../assets/images/docs.svg";
+import coffee from "../assets/images/coffee.svg";
+import screen from "../assets/images/screen.svg";
 import Feature from "./Feature";
 import { Container, SimpleGrid } from "@chakra-ui/react";
 import SlideFadeOnScroll from "./SlideFadeOnScroll";
