@@ -10,10 +10,10 @@ import {
   useColorModeValue,
   // SimpleGrid
 } from "@chakra-ui/react";
-import working from "../assets/working.svg";
+import bitcoin_miner from "../assets/bitcoin_miner.svg";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 const ListFeatures = () => {
-  const list = ["Lifetime updates", "Tons of assets", "Tech support", "Integration ready"];
+  const list = ["New Token on line", "Free a short time", "Claiming your free NFTs", "Every 3 days"];
   const bg = useColorModeValue("gray.50", "teal.700");
   /*
   const {colorMode} = useColorMode()
@@ -30,11 +30,11 @@ const ListFeatures = () => {
           alignItems="center"
         >
           <Box flex="1">
-            <img src={working} alt="Illustration with a computer on the desk" width="400" height="295" />
+            <img src={bitcoin_miner} alt="Bitcoin miner" width="500" height="318" />
           </Box>
           <Box flex="1">
             <Heading mb="6" fontFamily="special">
-              The most useful resource ever created for designers
+              Build by traders for traders
             </Heading>
             <List sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6 }}>
               {list.map((el, index) => {

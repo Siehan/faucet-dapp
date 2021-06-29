@@ -22,8 +22,8 @@ const GetStarted = () => {
             Get our Robinet Token
           </Heading>
           <Text fontSize="xl" mb="6">
-            Our token is free. It will allow you to perform all your tests. You will have to wait 3 days before you can
-            make a new request.
+            Our token is free a short time. It will allow you to perform all your tests. You will have to wait 3 days
+            before you can make a new request.
           </Text>
           <Button as="a" href="#login" colorScheme="orange" size="lg">
             Go to Login & Claim Robinet Token

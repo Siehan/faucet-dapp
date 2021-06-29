@@ -54,7 +54,7 @@ function Faucet() {
 
   return (
     <>
-      <Box as="section" bg={bg} id="faucet" pt="20" pb="10">
+      <Box as="section" bg={bg} id="faucet" pt="20" pb="20">
         <Container maxW="container.lg">
           <SlideFadeOnScroll>
             <Box flex="1">
@@ -92,7 +92,7 @@ function Faucet() {
                 {...rest}
               >
                 <Heading align="center" fontSize="5xl" mb={20}>
-                  🔥 🔥 Claim {} right now ! 🔥 🔥
+                  🔥 🔥 CLAIM {} RIGHT NOW ! 🔥 🔥
                 </Heading>
                 <Spacer />
                 <Box w="300px" p={5} border="1px" borderColor="yellow.300" rounded="3xl" fontWeight="bold" mb={20}>

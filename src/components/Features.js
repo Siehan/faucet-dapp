@@ -20,8 +20,8 @@ const Features = () => {
     },
     {
       icon: docs,
-      title: "Documentation for everything",
-      text: "We've written extensive documentation for components and tools, so you never have to reverse engineer anything.",
+      title: "Documentation for Robinet Token",
+      text: "We've written extensive documentation to explain you how is born Robinet Token and why.",
     },
   ];
   return (
