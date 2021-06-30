@@ -13,7 +13,7 @@ const Features = () => {
     {
       icon: eau_du_robinet1_pixel_perfect,
       title: "Claim a free RBT Token",
-      text: "Robinet Token is a token that we are pleased to offer you. You can claim it every 3 days.",
+      text: "Robinet Token is a token that we are pleased to offer you for your tests. You can claim it every 3 days.",
     },
     {
       icon: checkBalance,
