@@ -1,4 +1,3 @@
-//Ok
 import {
   Modal,
   ModalOverlay,
@@ -19,8 +18,6 @@ const Form = ({ isOpen, onClose }) => {
   const [receiptRequest, setReceiptRequest] = useState(false);
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    // get the data
-    // do sth with the data
     setReceiptRequest(true);
   };
   return (

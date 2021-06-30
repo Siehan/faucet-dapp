@@ -12,7 +12,8 @@ function Faucet() {
   const { token, balance } = useToken();
   const toast = useToast();
   const [loading, setLoading] = useState(false);
-  const bg = useColorModeValue("gray.50", "teal.700");
+  const bg = useColorModeValue("white", "teal.800");
+  const bg2 = useColorModeValue("gray.20", "teal.500");
   console.log(faucet);
 
   const handleClaimToken = async () => {
@@ -51,61 +52,60 @@ function Faucet() {
   };
 
   return (
-    <>
-      <Box bg={bg}>
-        <Container as="section" borderRadius="md" id="faucet" maxW="container.lg" pt="20" pb="10">
-          <SlideFadeOnScroll>
-            <Box flex="1">
-              <Heading
-                mb="6"
-                borderRadius="md"
-                textShadow="1px 4px orange"
-                align="center"
-                bgGradient="linear(to-l, #48BB78, #81E6D9)"
-                _hover={{
-                  bgGradient: "linear(to-r, #ED64A6, #805AD5)",
-                }}
-              >
-                FAUCET
-              </Heading>
+    <Box as="section" w={"100%"} bg={bg}>
+      <Container borderRadius="md" maxW="container.lg" id="faucet" pt="20" pb="10">
+        <SlideFadeOnScroll>
+          <Box flex="1">
+            <Heading
+              mb="20"
+              p={2}
+              borderRadius="md"
+              textShadow="1px 4px orange"
+              align="center"
+              bgGradient="linear(to-l, #48BB78, #81E6D9)"
+              _hover={{
+                bgGradient: "linear(to-r, #ED64A6, #805AD5)",
+              }}
+            >
+              FAUCET
+            </Heading>
+          </Box>
+
+          <Box bg={bg2} flex="1" align="center" borderRadius="md" boxShadow="xl" p="10" overflow="hidden" {...rest}>
+            <Heading fontSize="5xl" mb={20}>
+              🔥 🔥 CLAIM RIGHT NOW ! 🔥 🔥
+            </Heading>
+
+            <Button
+              onClick={handleClaimToken}
+              bgGradient="linear(to-r, red,orange,yellow)"
+              _hover={{
+                bgGradient: "linear(to-l, red,orange,yellow)",
+              }}
+              borderRadius="3xl"
+              mb={20}
+              size="2xl"
+              height="60px"
+              width="300px"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <CircularProgress fontSize="15px" isIndeterminate size="30px" color="green.300" />
+                  <p>Claiming...</p>
+                </>
+              ) : (
+                "Claim 100 RBT"
+              )}
+            </Button>
+
+            <Box w="300px" p={5} boxShadow="xl" borderRadius="md" fontWeight="bold" mb={10}>
+              YOUR RBT BALANCE : {balance}
             </Box>
-
-            <Box flex="1" align="center" borderRadius="md" boxShadow="xl" p="10" overflow="hidden" {...rest}>
-              <Heading fontSize="5xl" mb={20}>
-                🔥 🔥 CLAIM RIGHT NOW ! 🔥 🔥
-              </Heading>
-
-              <Button
-                onClick={handleClaimToken}
-                bgGradient="linear(to-r, red,orange,yellow)"
-                _hover={{
-                  bgGradient: "linear(to-l, red,orange,yellow)",
-                }}
-                borderRadius="3xl"
-                mb={20}
-                size="2xl"
-                height="60px"
-                width="300px"
-                disabled={loading}
-              >
-                {loading ? (
-                  <>
-                    <CircularProgress fontSize="15px" isIndeterminate size="30px" color="green.300" />
-                    <p>Claiming...</p>
-                  </>
-                ) : (
-                  "Claim 100 RBT"
-                )}
-              </Button>
-
-              <Box w="300px" p={5} boxShadow="xl" borderRadius="md" fontWeight="bold" mb={10}>
-                YOUR RBT BALANCE : {balance}
-              </Box>
-            </Box>
-          </SlideFadeOnScroll>
-        </Container>
-      </Box>
-    </>
+          </Box>
+        </SlideFadeOnScroll>
+      </Container>
+    </Box>
   );
 }
 

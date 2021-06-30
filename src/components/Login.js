@@ -118,25 +118,5 @@ function Login({ title, desc, ...rest }) {
 export default Login;
 
 /*
-<Box flex="1" align="center" borderRadius="md">
- <img src={robinet_wasserhahn_clean} width="500" height="378" alt="robinet blanc" />
-</Box>
+<div>Icônes conçues par <a href="https://www.flaticon.com/fr/auteurs/pixel-perfect" title="Pixel perfect">Pixel perfect
 */
-
-/*
-
-<div>
-Icônes conçues par{" "}
-<a href="https://www.flaticon.com/fr/auteurs/pixel-perfect" title="Pixel perfect">
-Pixel perfect
-</a>{" "}
-from{" "}
-<a href="https://www.flaticon.com/fr/" title="Flaticon">
- www.flaticon.com
-</a>
-</div>
-*/
-
-/*
-<div>Icônes conçues par <a href="https://www.flaticon.com/fr/auteurs/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/fr/" title="Flaticon">www.flaticon.com</a></div>
- */

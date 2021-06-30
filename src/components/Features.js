@@ -1,7 +1,9 @@
-//Ok
-import docs from "../assets/images/docs.svg";
-import coffee from "../assets/images/coffee.svg";
-import screen from "../assets/images/screen.svg";
+import eau_du_robinet1_pixel_perfect from "../assets/images/eau_du_robinet1_pixel_perfect.svg";
+import checkBalance from "../assets/images/checkBalance.png";
+import checkAllowance from "../assets/images/checkAllowance.png";
+import transferIcon from "../assets/images/transferIcon.png";
+import approved from "../assets/images/approved.png";
+import exchangeIcon from "../assets/images/exchangeIcon.png";
 import Feature from "./Feature";
 import { Container, SimpleGrid } from "@chakra-ui/react";
 import SlideFadeOnScroll from "./SlideFadeOnScroll";
@@ -9,19 +11,34 @@ import SlideFadeOnScroll from "./SlideFadeOnScroll";
 const Features = () => {
   const features = [
     {
-      icon: coffee,
-      title: "Robinet Token",
+      icon: eau_du_robinet1_pixel_perfect,
+      title: "Claim a free RBT Token",
       text: "Robinet Token is a token that we are pleased to offer you. You can claim it every 3 days.",
     },
     {
-      icon: screen,
-      title: "Designed to be modern",
-      text: "Designed with the latest design trends in mind. Faucet feels modern, minimal, and beautiful.",
+      icon: checkBalance,
+      title: "Check Balance",
+      text: "Allow you to check the $RBT tokens balance of anyone, just enter a valid address.",
     },
     {
-      icon: docs,
-      title: "Documentation for Robinet Token",
-      text: "We've written extensive documentation to explain you how is born Robinet Token and why.",
+      icon: checkAllowance,
+      title: "Check Allowance",
+      text: "Allow you to check how much the sender is allowed to transfered from another address.",
+    },
+    {
+      icon: transferIcon,
+      title: "Transfer",
+      text: "Make you able to transfer yours $RBT tokens to someone else.",
+    },
+    {
+      icon: approved,
+      title: "Approval",
+      text: "You can allow someone else to spend a certain amount of yours $RBT tokens.",
+    },
+    {
+      icon: exchangeIcon,
+      title: "Transfer From",
+      text: "Allows you to transfer tokens from an address to another (depending how much the owner has approved you to spend).",
     },
   ];
   return (

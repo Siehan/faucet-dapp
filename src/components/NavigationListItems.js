@@ -1,4 +1,3 @@
-//Ok
 import { List, ListItem, Link } from "@chakra-ui/react";
 
 const NavigationListItems = ({ sx }) => {

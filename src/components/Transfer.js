@@ -131,7 +131,6 @@ const Transfer = () => {
       as="section"
       boxShadow="xl"
       borderRadius="md"
-      id="faucet"
       overflow="hidden"
       paddingX="5"
       paddingY="5"

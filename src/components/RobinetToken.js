@@ -13,6 +13,7 @@ const RobinetToken = () => {
           <Box flex="1">
             <Heading
               mb="20"
+              p={2}
               borderRadius="md"
               textShadow="1px 4px orange"
               align="center"
@@ -29,12 +30,11 @@ const RobinetToken = () => {
             <Heading
               marginInlineStart={"25%"}
               marginInlineEnd={"25%"}
-              borderWidth="1px"
               textAlign="center"
-              textColor="teal.500"
+              textColor="tomato"
               fontWeight="normal"
-              boxShadow="xl"
-              borderRadius="2xl"
+              rounded="md"
+              boxShadow="md"
             >
               Analytics
             </Heading>
@@ -45,12 +45,11 @@ const RobinetToken = () => {
             <Heading
               marginInlineStart={"25%"}
               marginInlineEnd={"25%"}
-              borderWidth="1px"
               textAlign="center"
-              textColor="teal.500"
+              textColor="blue.500"
               fontWeight="normal"
-              boxShadow="xl"
-              borderRadius="2xl"
+              rounded="md"
+              boxShadow="md"
             >
               Transfer
             </Heading>
@@ -61,12 +60,11 @@ const RobinetToken = () => {
             <Heading
               marginInlineStart={"25%"}
               marginInlineEnd={"25%"}
-              borderWidth="1px"
               textAlign="center"
-              textColor="teal.500"
+              textColor="green.600"
               fontWeight="normal"
-              boxShadow="xl"
-              borderRadius="2xl"
+              rounded="md"
+              boxShadow="md"
             >
               Approval
             </Heading>
@@ -77,12 +75,11 @@ const RobinetToken = () => {
             <Heading
               marginInlineStart={"25%"}
               marginInlineEnd={"25%"}
-              borderWidth="1px"
               textAlign="center"
-              textColor="teal.500"
+              textColor={"#0eb4ce"}
               fontWeight="normal"
-              boxShadow="xl"
-              borderRadius="2xl"
+              rounded="md"
+              boxShadow="md"
             >
               TransferFrom
             </Heading>

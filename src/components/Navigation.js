@@ -1,4 +1,3 @@
-//Ok
 import { Box, Container, Link, useMediaQuery, useColorModeValue } from "@chakra-ui/react";
 import MobileNavigation from "./MobileNavigation";
 import NavigationListItems from "./NavigationListItems";

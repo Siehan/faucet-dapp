@@ -107,8 +107,7 @@ const Approval = () => {
       maxW="container.lg"
       as="section"
       boxShadow="xl"
-      borderRadius="md"
-      id="faucet"
+      rounded="md"
       overflow="hidden"
       paddingX="5"
       paddingY="5"
@@ -162,20 +161,3 @@ const Approval = () => {
 };
 
 export default Approval;
-
-/*
-border-radius: 5px;
-    background-image: linear-gradient(
--131deg
-, #0eb4ce 0%, #0eb4ce 100%);
-    color: #fff;
-    height: 50px;
-    padding: 12px 43px;
-    font-size: 18px;
-    line-height: 22px;
-    font-weight: 600;
-    box-shadow: 0 15px 35px #e3f8ee;
-    border: none;
-    outline: none;
-    transition: all .2s ease-in;
-    */

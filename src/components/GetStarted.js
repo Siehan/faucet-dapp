@@ -1,9 +1,9 @@
-//Ok
-import { Box, Badge, Button, Container, Heading, LightMode, Text } from "@chakra-ui/react";
+import { Box, Badge, Button, Container, Heading, LightMode, Text, useColorModeValue } from "@chakra-ui/react";
 const GetStarted = () => {
+  const bg = useColorModeValue("gray.30", "teal.700");
   return (
     <LightMode>
-      <Box as="section" textAlign="center" bg="teal.900" py="20" color="white" id="login" borderRadius="md">
+      <Box as="section" textAlign="center" bg={bg} py="20" id="login" borderRadius="md">
         <Container maxWidth="container.md">
           <Badge
             as="span"
