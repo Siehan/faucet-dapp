@@ -51,11 +51,12 @@ function Login({ title, desc, ...rest }) {
         </ModalContent>
       </Modal>
 
-      <Container id="login" borderRadius="md" as="section" maxW="container.lg" pt="20" pb="10" {...rest}>
+      <Container id="login" borderRadius="md" as="section" maxW="container.lg" py="20" {...rest}>
         <SlideFadeOnScroll>
           <Box flex="1">
             <Heading
               mb="6"
+              p={1}
               borderRadius="md"
               textShadow="1px 4px orange"
               align="center"

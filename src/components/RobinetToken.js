@@ -13,7 +13,7 @@ const RobinetToken = () => {
           <Box flex="1">
             <Heading
               mb="20"
-              p={2}
+              p={1}
               borderRadius="md"
               textShadow="1px 4px orange"
               align="center"

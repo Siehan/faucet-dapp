@@ -42,7 +42,7 @@ const Features = () => {
     },
   ];
   return (
-    <Container as="section" maxW="container.lg" py="10">
+    <Container as="section" maxW="container.lg" py="10" pb="-5">
       <SlideFadeOnScroll>
         <SimpleGrid columns={[1, null, 3]} gap="8">
           {features.map((el, index) => {

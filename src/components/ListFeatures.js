@@ -42,7 +42,7 @@ const ListFeatures = () => {
               {list.map((el, index) => {
                 return (
                   <ListItem key={index}>
-                    <ListIcon as={CheckCircleIcon} color="teal.300" />
+                    <ListIcon as={CheckCircleIcon} color="orange" />
                     {el}
                   </ListItem>
                 );
