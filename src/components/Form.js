@@ -29,13 +29,13 @@ const Form = ({ isOpen, onClose }) => {
         <ModalBody>
           {!receiptRequest ? (
             <form onSubmit={handleFormSubmit}>
-              <FormControl id="name" mb="4">
+              <FormControl id="name" mb="4" isRequired>
                 <FormLabel>Your name</FormLabel>
-                <Input placeholder="Joe Doe" required />
+                <Input placeholder="Joe Doe" />
               </FormControl>
-              <FormControl id="email" mb="4">
+              <FormControl id="email" mb="4" isRequired>
                 <FormLabel>Your email</FormLabel>
-                <Input type="email" placeholder="joe@doe.com" required />
+                <Input type="email" placeholder="joe@doe.com" />
               </FormControl>
 
               <Button type="submit" mb="4">

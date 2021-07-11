@@ -7,7 +7,7 @@ const SwitchColorMode = () => {
   return (
     <IconButton
       ml="2"
-     bg={"whiteAlpha"}
+      bg={"whiteAlpha"}
       // bg={"orange"}
       onClick={toggleColorMode}
       aria-label="Toggle color mode"
