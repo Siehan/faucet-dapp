@@ -2,7 +2,7 @@
   Robinet Token
 </h1>
 
-If you want to look at the result of our "Robinet Token" project, it is deployed on Netlify.
+If you want to look at the result of our "Robinet Token" project, it's' deployed on Netlify.
 Here is the app link below:
 
 [https://the-faucet-dapp.netlify.app/](https://the-faucet-dapp.netlify.app/)
