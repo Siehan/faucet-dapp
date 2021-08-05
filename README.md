@@ -1,3 +1,12 @@
+<h1 align="center">
+  Robinet Token
+</h1>
+
+If you want to look at the result of our "Robinet Token" project, it is deployed on Netlify.
+Here is the app link below:
+
+[https://the-faucet-dapp.netlify.app/](https://the-faucet-dapp.netlify.app/)
+
 # Exercice Faucet + ERC20 interface
 
 Cet exercice est évalué et est à rendre avant le vendredi 18 juin 17h30 au plus tard.
