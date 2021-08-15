@@ -21,6 +21,7 @@
     "hosted-git-info": "^2.8.9",
     "is-svg": "^4.2.2",
     "normalize-url": "^4.5.1",
+    "path-parse": "^1.0.7",
     "postcss": "^8.2.10",
     "react": "^17.0.2",
     "react-countup": "^4.3.3",
