@@ -8,7 +8,6 @@ const SwitchColorMode = () => {
     <IconButton
       ml="2"
       bg={"whiteAlpha"}
-      // bg={"orange"}
       onClick={toggleColorMode}
       aria-label="Toggle color mode"
       icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}

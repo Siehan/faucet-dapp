@@ -1,5 +1,5 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { Button, Fade, Box, useDisclosure, IconButton, useColorModeValue } from "@chakra-ui/react";
+import { Button, Fade, Box, IconButton, useColorModeValue, useDisclosure } from "@chakra-ui/react";
 
 const MobileNavigation = ({ children }) => {
   const { isOpen, onToggle } = useDisclosure();
